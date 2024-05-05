@@ -3,3 +3,30 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.noun__list {
+  margin: 25px 0px 50px 0px;
+}
+
+.noun__meaning:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.synonyms__section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.synonyms__list {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  gap: 10px;
+}
+
+.synonyms__list-item {
+  list-style-type: none;
+  color: var(--primary-color);
+  font-weight: 700;
+}

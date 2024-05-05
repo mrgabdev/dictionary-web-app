@@ -30,14 +30,29 @@ export default async function WordPage({ params }: Props) {
       <Section sectionName={'noun'}>
         <section>
           <h3>meaning</h3>
-          <ul>
-            <li>(etc.) A set of keys used to operate a typewriter, computer etc.</li>
+          <ul className={style.noun__list}>
+            <li className={style.noun__meaning}>
+              (etc.) A set of keys used to operate a typewriter, computer etc.
+            </li>
+            <li className={style.noun__meaning}>
+              A component of many instruments including the piano, organ, and harpsichord consisting
+              of usually black and white keys that cause different tones to be produced when struck.
+            </li>
+            <li className={style.noun__meaning}>
+              A device with keys of a musical keyboard, used to control electronic sound-producing
+              devices which may be built into or separate from the keyboard device.
+            </li>
           </ul>
         </section>
 
-        <section>
+        <section className={style.synonyms__section}>
           <h3>synonyms</h3>
-          <p>electronic keyboard</p>
+          <ul className={style.synonyms__list}>
+            <li className={style['synonyms__list-item']}>electronic keyboard</li>
+            <li className={style['synonyms__list-item']}>electronic keyboard</li>
+            <li className={style['synonyms__list-item']}>electronic keyboard</li>
+            <li className={style['synonyms__list-item']}>electronic keyboard</li>
+          </ul>
         </section>
       </Section>
       <Section sectionName={'verb'}>
