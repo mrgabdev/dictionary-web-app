@@ -1,0 +1,46 @@
+@use '@/assets/styles/spacing';
+@use '@/assets/styles/sizes';
+
+.container {
+  width: var(--container-width);
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 var(--container-padding);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: spacing.$sm;
+  margin-bottom: spacing.$sm;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  width: 28.05px;
+  height: 32px;
+}
+
+.divider {
+  height: 32px;
+  background-color: var(--divider);
+  border: 0px;
+  width: 1px;
+  margin: 0 16px;
+}
+
+@media (min-width: sizes.$tablet) {
+  .header__logo {
+    width: 32px;
+    height: 36.5px;
+  }
+  .divider {
+    margin: 0 26px;
+  }
+}

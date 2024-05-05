@@ -1,0 +1,119 @@
+@use './reset';
+@use './fonts';
+@use './colors';
+@use './global';
+@use './sizes';
+@use './spacing';
+
+:root {
+  --primary-color: #{colors.$lavender};
+  --secondary-color: #{colors.$grey};
+  --warning_color: #{colors.$red};
+  --bg: #{colors.$white};
+  --box-bg: #{colors.$white};
+  --text-primary: #{colors.$saxon-gray};
+  --text-secondary: #{colors.$grey};
+  --box-shadow: #{colors.$shadow};
+  --input-bg: #{colors.$snow-white};
+  --divider: #{colors.$glacier-white};
+  --container-width: #{sizes.$mobile-xs};
+  --container-padding: #{spacing.$sm};
+  --heading-1: #{sizes.$heading-sm};
+  --heading-2: #{sizes.$heading-xxs};
+  --paragraph: #{sizes.$paragraph-sm};
+
+  @media (min-width: sizes.$mobile) {
+    --container-width: #{sizes.$mobile};
+    --container-padding: #{spacing.$md};
+    --heading-1: #{sizes.$heading-l};
+    --heading-2: #{sizes.$heading-xs};
+
+    --paragraph: #{sizes.$paragraph-l};
+  }
+
+  @media (min-width: sizes.$tablet) {
+    --container-width: #{sizes.$tablet};
+    --container-padding: #{spacing.$lg};
+  }
+
+  @media (min-width: sizes.$desktop) {
+    --container-width: #{sizes.$desktop};
+    --container-padding: #{spacing.$xxl};
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #{colors.$black};
+    --box-bg: #{colors.$brilliant-black};
+    --text-primary: #{colors.$white};
+    --text-secondary: #{colors.$grey};
+    --box-shadow: #{colors.$lavender};
+    --input-bg: #{colors.$brilliant-black};
+    --divider: #{colors.$black-olive};
+  }
+}
+
+.light {
+  --bg: #{colors.$white};
+  --box-bg: #{colors.$white};
+  --text-primary: #{colors.$saxon-gray};
+  --text-secondary: #{colors.$grey};
+  --box-shadow: #{colors.$shadow};
+  --input-bg: #{colors.$snow-white};
+  --divider: #{colors.$glacier-white};
+}
+
+.dark {
+  --bg: #{colors.$black};
+  --box-bg: #{colors.$brilliant-black};
+  --text-primary: #{colors.$white};
+  --text-secondary: #{colors.$grey};
+  --box-shadow: #{colors.$lavender};
+  --input-bg: #{colors.$brilliant-black};
+  --divider: #{colors.$black-olive};
+}
+
+body {
+  background-color: var(--bg);
+}
+
+h1 {
+  font-size: var(--heading-1);
+}
+
+h2 {
+  font-style: italic;
+  font-size: var(--heading-2);
+}
+
+h1,
+h2,
+p,
+li {
+  color: var(--text-primary);
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+h3 {
+  line-height: normal;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+p,
+li {
+  font-size: var(--paragraph);
+  line-height: 24px;
+}
+
+li::marker {
+  color: var(--primary-color);
+}

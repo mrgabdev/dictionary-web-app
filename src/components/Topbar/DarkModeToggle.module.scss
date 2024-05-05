@@ -1,0 +1,54 @@
+@use '@/assets/styles/sizes';
+
+// Layout
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+// Toggle Button
+.toggle-btn {
+  --btn-width: 40px;
+  background-color: var(--secondary-color);
+  width: var(--btn-width);
+  height: 20px;
+  border: 0px;
+  border-radius: 10px;
+  transition: background-color 0.1s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle-btn .thumb {
+  height: 14px;
+  width: 14px;
+  background-color: white;
+  border: 0;
+  border-radius: 100%;
+  transform: translateX(0);
+  transition: left 0.15s ease;
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-btn.toggled {
+  background-color: var(--primary-color);
+}
+
+.toggle-btn.toggled .thumb {
+  left: calc((var(--btn-width) - (var(--btn-width) / 2)) + 3px);
+}
+
+.moon-active {
+  stroke: var(--primary-color);
+}
+
+@media (min-width: sizes.$tablet) {
+  .container {
+    gap: 20px;
+  }
+}

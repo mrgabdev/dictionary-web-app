@@ -1,0 +1,19 @@
+@use '@/assets/styles/sizes';
+
+.search-container {
+  margin-bottom: 40px;
+}
+
+.search-bar {
+  width: 100%;
+  background-color: var(--input-bg);
+  border: 0px solid transparent;
+  border-radius: 16px;
+  height: 48px;
+}
+
+@media (min-width: sizes.$tablet) {
+  .search-bar {
+    height: 64px;
+  }
+}

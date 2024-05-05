@@ -1,0 +1,82 @@
+@use '@/assets/styles/sizes';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.container {
+  border-radius: 16px;
+  background-color: var(--box-bg);
+  box-shadow: 0px 5px 30px 0px var(--box-shadow);
+
+  position: absolute;
+  top: 130%;
+  right: 5%;
+  z-index: 10;
+}
+
+.active-font {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.fonts {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  width: 100%;
+
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.font-sans-serif {
+  font-family: Inter;
+}
+
+.font-serif {
+  font-family: Lora;
+}
+
+.font-mono {
+  font-family: Inconsolata;
+}
+
+.fonts li {
+  font-style: normal;
+  font-weight: 700;
+  text-transform: capitalize;
+  width: 100%;
+  padding: 12px 24px;
+}
+
+.fonts li:first-child {
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}
+
+.fonts li:last-child {
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.fonts li:hover {
+  background-color: var(--input-bg);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+@media (min-width: sizes.$mobile) {
+  .container {
+    width: 183px;
+  }
+}
