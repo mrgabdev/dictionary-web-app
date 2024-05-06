@@ -1,6 +1,10 @@
 import { ButtonPlay, PhoneticWord, Section } from '@/word'
 import { Metadata } from 'next'
 import style from './page.module.scss'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Word } from '@/word/domain/Dictionary'
+import { DictionaryApiDictionaryRepository } from '@/word/infraestructure/DictionaryApiDictionaryRepository'
 
 interface Props {
   params: {
@@ -17,12 +21,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+// const getWord = async (name: String): Promise<Word> => {
+//   const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, {
+//     // cache: 'force-cache',
+//     next: {
+//       revalidate: 60 * 60 * 30 * 6
+//     }
+//   }).then((response) => response.json())
+
+//   return pokemon
+// }
+
 export default async function WordPage({ params }: Props) {
+  const api = new DictionaryApiDictionaryRepository()
+
+  const word = await api.search(params.word)
+
   return (
     <main className='container'>
       <header className={style.header}>
         <div>
-          <h1>{params.word}</h1>
+          <h1>{word.word}</h1>
           <PhoneticWord word='/&#712;ki&#720;bɔ&#720;d/' />
         </div>
         <ButtonPlay word={params.word} />
@@ -30,7 +49,7 @@ export default async function WordPage({ params }: Props) {
       <Section sectionName={'noun'}>
         <section>
           <h3>meaning</h3>
-          <ul className={style.noun__list}>
+          <ul className={style.meaning__list}>
             <li className={style.noun__meaning}>
               (etc.) A set of keys used to operate a typewriter, computer etc.
             </li>
@@ -58,7 +77,7 @@ export default async function WordPage({ params }: Props) {
       <Section sectionName={'verb'}>
         <section>
           <h3>meaning</h3>
-          <ul>
+          <ul className={style.meaning__list}>
             <li>
               <p>To type on a computer keyboard.</p>
               <p>“Keyboarding is the part of this job I hate the most.”</p>
@@ -66,9 +85,20 @@ export default async function WordPage({ params }: Props) {
           </ul>
         </section>
       </Section>
-      <footer>
+
+      <hr className='section-divider section-divider--bottom' />
+
+      <footer className={style.footer}>
         <h4>Source</h4>
-        <p>https://en.wiktionary.org/wiki/keyboard</p>
+        <Link
+          target='_blank'
+          href={'/'}
+          className={style['footer__source-link']}
+          rel='noopener noreferrer'
+        >
+          https://en.wiktionary.org/wiki/keyboard
+          <Image src='/icon-new-window.svg' alt='new page' width={12} height={12} />
+        </Link>
       </footer>
     </main>
   )

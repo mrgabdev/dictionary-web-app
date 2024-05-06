@@ -3,25 +3,32 @@ export interface Dictionary {
   phonetic: string
   phonetics: Phonetic[]
   meanings: Meaning[]
+  license: License
   sourceUrls: string[]
 }
 
-interface Meaning {
+interface License {
+  name: string
+  url: string
+}
+
+export interface Meaning {
   partOfSpeech: string
   definitions: Definition[]
   synonyms: string[]
   antonyms: any[]
 }
 
-interface Definition {
+export interface Definition {
   definition: string
   synonyms: any[]
   antonyms: any[]
   example?: string
 }
 
-interface Phonetic {
+export interface Phonetic {
   text: string
   audio: string
   sourceUrl?: string
+  license?: License
 }

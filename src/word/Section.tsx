@@ -10,7 +10,7 @@ export const Section = ({ sectionName, children }: Props) => {
     <section className={style['section-container']}>
       <h2 className={style['section-title']}>
         {sectionName}
-        <hr className={style['section-divider']} />
+        <hr className='section-divider' />
       </h2>
       {children}
     </section>

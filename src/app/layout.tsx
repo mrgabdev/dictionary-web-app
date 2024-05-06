@@ -1,4 +1,3 @@
-import { SearchBar } from '@/components/searchbar/SearchBar'
 import { TopBar } from '@/components/Topbar/TopBar'
 import type { Metadata } from 'next'
 import '@/assets/styles/index.scss'
@@ -19,7 +18,6 @@ export default function RootLayout({
       <body>
         <SettingsContextProvider>
           <TopBar />
-          <SearchBar />
           {children}
         </SettingsContextProvider>
       </body>

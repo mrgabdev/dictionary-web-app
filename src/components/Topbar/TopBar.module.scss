@@ -13,8 +13,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: spacing.$sm;
-  margin-bottom: spacing.$sm;
+  margin-top: spacing.$xs;
+  margin-bottom: spacing.$xs;
 }
 
 .header__content {
@@ -36,6 +36,11 @@
 }
 
 @media (min-width: sizes.$tablet) {
+  .header {
+    margin-top: 58px;
+    margin-bottom: 50px;
+  }
+
   .header__logo {
     width: 32px;
     height: 36.5px;
