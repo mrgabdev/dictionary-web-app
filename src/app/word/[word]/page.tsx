@@ -67,10 +67,12 @@ export default async function WordPage({ params }: Props) {
         <section>
           <h3>meaning</h3>
           <ul className={style.meaning__list}>
-            <li>
-              <p>To type on a computer keyboard.</p>
-              <p>“Keyboarding is the part of this job I hate the most.”</p>
-            </li>
+            {dictionary.verbs?.map(({ definition, example }) => (
+              <li key={definition} className={style.noun__meaning}>
+                <p>{definition}</p>
+                {example && <p className={style.meaning__example}>“{example}”</p>}
+              </li>
+            ))}
           </ul>
         </section>
       </Section>
@@ -79,15 +81,20 @@ export default async function WordPage({ params }: Props) {
 
       <footer className={style.footer}>
         <h4>Source</h4>
-        <Link
-          target='_blank'
-          href={'/'}
-          className={style['footer__source-link']}
-          rel='noopener noreferrer'
-        >
-          https://en.wiktionary.org/wiki/keyboard
-          <Image src='/icon-new-window.svg' alt='new page' width={12} height={12} />
-        </Link>
+        <ul className={style['footer__source-list']}>
+          {dictionary.sourceUrls.map((source) => (
+            <Link
+              key={source}
+              target='_blank'
+              href={source}
+              className={style['footer__source-link']}
+              rel='noopener noreferrer'
+            >
+              {source}
+              <Image src='/icon-new-window.svg' alt={source} width={12} height={12} />
+            </Link>
+          ))}
+        </ul>
       </footer>
     </main>
   )

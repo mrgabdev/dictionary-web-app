@@ -31,12 +31,25 @@
   font-weight: 700;
 }
 
+.meaning__example {
+  margin-top: 10px;
+
+  color: var(--text-secondary);
+  font-feature-settings: 'clig' off, 'liga' off;
+  line-height: 24px; /* 133.333% */
+}
+
 .footer {
   display: flex;
-  gap: 30px;
   align-items: center;
   flex-wrap: wrap;
   padding-bottom: 100px;
+}
+
+.footer__source-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .footer__source-link {
@@ -45,5 +58,5 @@
   font-size: 14px;
   color: var(--text-primary);
   text-decoration-line: underline;
-  gap: 10px;
+  gap: 5px;
 }
