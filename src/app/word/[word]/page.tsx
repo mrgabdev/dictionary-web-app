@@ -3,7 +3,8 @@ import { Metadata } from 'next'
 import style from './page.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Word } from '@/word/domain/Dictionary'
+import { notFound } from 'next/navigation'
+
 import { DictionaryApiDictionaryRepository } from '@/word/infraestructure/DictionaryApiDictionaryRepository'
 
 interface Props {
@@ -37,6 +38,10 @@ export default async function WordPage({ params }: Props) {
 
   const word = await api.search(params.word)
 
+  if (!word.word) {
+    notFound()
+  }
+
   return (
     <main className='container'>
       <header className={style.header}>
@@ -44,7 +49,7 @@ export default async function WordPage({ params }: Props) {
           <h1>{word.word}</h1>
           <PhoneticWord word='/&#712;ki&#720;bɔ&#720;d/' />
         </div>
-        <ButtonPlay word={params.word} />
+        <ButtonPlay word={word.word} />
       </header>
       <Section sectionName={'noun'}>
         <section>
