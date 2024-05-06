@@ -1,12 +1,15 @@
 export interface Word {
   word: string
   phonetic: string
-  nouns?: Noun[]
+  nouns?: Noun
   verbs?: Verb[]
   sourceUrls: string[]
 }
 
-export type Noun = string
+export interface Noun {
+  definitions: string[]
+  synonyms: string[]
+}
 
 export interface Verb {
   definition: string

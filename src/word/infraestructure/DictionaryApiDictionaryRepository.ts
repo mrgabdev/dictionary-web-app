@@ -18,9 +18,11 @@ export class DictionaryApiDictionaryRepository implements DictionaryRepository {
         .json()
         .then((response: Dictionary[]) => response[0])
         .then((response: Dictionary) => {
-          const noun = response.meanings
-            ?.find((type) => type.partOfSpeech === 'noun')
-            ?.definitions.map((content) => content.definition) as Noun[]
+          const nounList = response.meanings?.find((type) => type.partOfSpeech === 'noun')
+
+          const definitions = nounList?.definitions.map((content) => content.definition)
+
+          const synonyms = nounList?.synonyms.map((content) => content)
 
           const verb = response.meanings
             ?.find((type) => type.partOfSpeech === 'verb')
@@ -32,7 +34,10 @@ export class DictionaryApiDictionaryRepository implements DictionaryRepository {
           return {
             word: response.word,
             phonetic: response.phonetic,
-            nouns: noun,
+            nouns: {
+              definitions,
+              synonyms
+            },
             verbs: verb,
             sourceUrls: response.sourceUrls
           }
