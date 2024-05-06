@@ -1,11 +1,9 @@
-import { Noun, Verb, Word } from './../domain/Dictionary'
+import { Verb, Word } from './../domain/Dictionary'
 import { Dictionary } from './DictionaryApiResponse'
 import { DictionaryRepository } from '../domain/DictionaryRepository'
-import NotFound from '@/app/word/[word]/not-found'
 
 export class DictionaryApiDictionaryRepository implements DictionaryRepository {
-  private readonly endpoint = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
-
+  private readonly endpoint = process.env.NEXT_PUBLIC_ENDPOINT
   async search(word: string): Promise<Word> {
     return fetch(`${this.endpoint}${word}`, {
       method: 'GET',
