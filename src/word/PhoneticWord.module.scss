@@ -1,9 +1,18 @@
+@use '@/assets/styles/sizes';
+
 .phonetic-word {
+  --phonetic-size: 18px;
   font-feature-settings: 'clig' off, 'liga' off;
   font-family: Inter;
-  font-size: 24px;
+  font-size: var(--phonetic-size);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   color: var(--primary-color);
+}
+
+@media (min-width: sizes.$tablet) {
+  .phonetic-word {
+    --phonetic-size: 24px;
+  }
 }

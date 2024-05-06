@@ -1,3 +1,13 @@
+@use '@/assets/styles/sizes';
+
 .button-play {
+  --btn-size: 48px;
+  width: var(--btn-size);
+  height: var(--btn-size);
   cursor: pointer;
+}
+@media (min-width: sizes.$tablet) {
+  .button-play {
+    --btn-size: 75px;
+  }
 }
