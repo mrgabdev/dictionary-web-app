@@ -6,7 +6,7 @@
   height: var(--btn-size);
   cursor: pointer;
 }
-@media (min-width: sizes.$tablet) {
+@media (min-width: sizes.$mobile) {
   .button-play {
     --btn-size: 75px;
   }

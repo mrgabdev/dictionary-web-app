@@ -1,21 +1,71 @@
 @use '@/assets/styles/sizes';
+@use '@/assets/styles/colors';
 
 .search-container {
   margin-bottom: 20px;
 }
 
-.search-bar {
-  --search-h: 48px;
+.search__form {
   width: 100%;
-  background-color: var(--input-bg);
+}
+
+.search__fieldset {
+  border: 0px solid transparent;
+  padding: 0;
+  position: relative;
+}
+
+.search__bar {
+  --search-h: 48px;
+  --padding-y: 16px;
   border: 0px solid transparent;
   border-radius: 16px;
+  outline: 0px solid transparent;
+
+  width: 100%;
   height: var(--search-h);
+  padding: 20px var(--padding-y);
+
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.search__btn {
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: 0px solid transparent;
+
+  position: absolute;
+  right: 15px;
+  bottom: 50%;
+
+  transform: translateY(50%);
+  cursor: pointer;
+}
+
+.search__btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.search__error {
+  color: colors.$red;
+}
+
+.search__bar--error {
+  border: 1px solid colors.$red;
+}
+
+.search__bar:focus {
+  border: 1px solid var(--primary-color);
 }
 
 @media (min-width: sizes.$tablet) {
-  .search-bar {
+  .search__bar {
     --search-h: 64px;
+    --padding-y: 20px;
   }
   .search-container {
     margin-bottom: 40px;
